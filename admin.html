@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Style - Administración</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 TIENDA
+        </a>
+
+        <a href="admin.html">
+            🛠️ ADMIN
+        </a>
+
+        <a href="pedidos.html">
+            📦 PEDIDOS
+        </a>
+
+    </nav>
+
+
+    <button
+        id="boton-tema"
+        class="boton-tema"
+        onclick="cambiarTema()"
+        title="Cambiar modo"
+    >
+        🌙
+    </button>
+
+    <!-- CERRAR SESIÓN -->
+
+    <button
+        type="button"
+        class="admin-boton cerrar-sesion"
+        onclick="cerrarSesionAdmin()"
+    >
+        🚪 SALIR
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     PANEL DE ADMINISTRACIÓN
+===================================================== -->
+
+<main class="admin-container">
+
+
+    <!-- =================================================
+         TÍTULO
+    ================================================== -->
+
+    <section class="admin-titulo">
+
+        <p>
+            URBAN STYLE
+        </p>
+
+        <h1>
+            🛠️ PANEL DE ADMINISTRACIÓN
+        </h1>
+
+        <span>
+            Administrá tu tienda desde un solo lugar
+        </span>
+
+    </section>
+
+
+    <!-- =================================================
+         AGREGAR PRODUCTO
+    ================================================== -->
+
+    <section class="admin-box">
+
+        <h2>
+            ➕ AGREGAR PRODUCTO
+        </h2>
+
+
+        <div class="admin-form">
+
+            <input
+                type="text"
+                id="nuevo-nombre"
+                placeholder="Nombre del producto"
+            >
+
+
+            <input
+                type="number"
+                id="nuevo-precio"
+                placeholder="Precio"
+                min="1"
+            >
+
+
+            <select id="nueva-categoria">
+
+                <option value="remeras">
+                    Remeras
+                </option>
+
+                <option value="buzos">
+                    Buzos
+                </option>
+
+                <option value="pantalones">
+                    Pantalones
+                </option>
+
+                <option value="zapatillas">
+                    Zapatillas
+                </option>
+
+                <option value="accesorios">
+                    Accesorios
+                </option>
+
+            </select>
+
+
+            <input
+                type="text"
+                id="nueva-imagen"
+                placeholder="Ruta de imagen. Ej: imagenes/remera.jpg"
+            >
+
+
+            <button
+                type="button"
+                class="admin-boton"
+                onclick="agregarProductoAdmin()"
+            >
+                ➕ AGREGAR PRODUCTO
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PRODUCTOS
+    ================================================== -->
+
+    <section class="admin-box">
+
+        <div class="admin-cabecera">
+
+            <div>
+
+                <h2>
+                    👕 PRODUCTOS
+                </h2>
+
+                <p>
+                    Modificá los productos de tu tienda.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-boton secundario"
+                onclick="restaurarProductos()"
+            >
+                🔄 RESTAURAR
+            </button>
+
+        </div>
+
+
+        <div id="lista-admin-productos"></div>
+
+    </section>
+
+
+    <!-- =================================================
+         OFERTA PRINCIPAL
+    ================================================== -->
+
+    <section class="admin-box">
+
+        <h2>
+            🔥 OFERTA PRINCIPAL
+        </h2>
+
+
+        <div class="admin-form">
+
+            <label for="producto-oferta">
+                Producto en oferta
+            </label>
+
+            <select id="producto-oferta"></select>
+
+
+            <label for="porcentaje-oferta">
+                Descuento (%)
+            </label>
+
+            <input
+                type="number"
+                id="porcentaje-oferta"
+                min="1"
+                max="90"
+                placeholder="Ej: 20"
+            >
+
+
+            <label for="duracion-oferta">
+                Duración de la oferta
+            </label>
+
+            <select id="duracion-oferta">
+
+                <option value="24">
+                    24 horas
+                </option>
+
+                <option value="12">
+                    12 horas
+                </option>
+
+                <option value="6">
+                    6 horas
+                </option>
+
+                <option value="2">
+                    2 horas
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="admin-boton"
+                onclick="guardarOfertaAdmin()"
+            >
+                🔥 GUARDAR OFERTA
+            </button>
+
+        </div>
+
+
+        <div
+            id="oferta-actual"
+            class="oferta-admin"
+        ></div>
+
+    </section>
+
+
+    <!-- =================================================
+         PEDIDOS
+    ================================================== -->
+
+    <section class="admin-box">
+
+        <h2>
+            📦 PEDIDOS
+        </h2>
+
+
+        <div id="lista-admin-pedidos"></div>
+
+    </section>
+
+
+    <!-- =================================================
+         ESTADÍSTICAS
+    ================================================== -->
+
+    <section class="admin-box">
+
+        <h2>
+            📊 ESTADÍSTICAS
+        </h2>
+
+
+        <div class="estadisticas">
+
+
+            <div class="estadistica">
+
+                <span>
+                    👕
+                </span>
+
+                <strong id="cantidad-productos">
+                    0
+                </strong>
+
+                <small>
+                    PRODUCTOS
+                </small>
+
+            </div>
+
+
+            <div class="estadistica">
+
+                <span>
+                    📦
+                </span>
+
+                <strong id="cantidad-pedidos">
+                    0
+                </strong>
+
+                <small>
+                    PEDIDOS
+                </small>
+
+            </div>
+
+
+            <div class="estadistica">
+
+                <span>
+                    💰
+                </span>
+
+                <strong id="dinero-vendido">
+                    $0
+                </strong>
+
+                <small>
+                    VENTAS
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Urban Style - Panel de administración
+    </p>
+
+</footer>
+
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>

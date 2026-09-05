@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pago - Urban Style</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 INICIO
+        </a>
+
+        <a href="index.html#productos">
+            👕 PRODUCTOS
+        </a>
+
+        <a href="index.html#ofertas">
+            🔥 OFERTAS
+        </a>
+
+        <a href="mis-favoritos.html">
+            ❤️ FAVORITOS
+        </a>
+
+        <a href="pedidos.html">
+            📦 PEDIDOS
+        </a>
+
+    </nav>
+
+
+    <button
+        id="boton-tema"
+        class="boton-tema"
+        onclick="cambiarTema()"
+        title="Cambiar modo"
+    >
+        🌙
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     PAGO
+===================================================== -->
+
+<main class="pago-container">
+
+    <div class="pago-box">
+
+        <h2>
+            💳 FINALIZAR COMPRA
+        </h2>
+
+        <p class="pago-subtitulo">
+            Completá los datos para continuar
+        </p>
+
+
+        <!-- AVISO DE SIMULACIÓN -->
+
+        <div class="simulacion">
+
+            ⚠️ PAGO SIMULADO
+
+            <br>
+
+            No se realiza ningún cobro real.
+
+        </div>
+
+
+        <!-- FORMULARIO -->
+
+        <form id="formulario-pago">
+
+
+            <div class="campo">
+
+                <label for="nombre">
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre de prueba"
+                    oninput="soloLetras(this)"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="tarjeta">
+                    Número de tarjeta de prueba
+                </label>
+
+                <input
+                    type="text"
+                    id="tarjeta"
+                    placeholder="0000 0000 0000 0000"
+                    maxlength="19"
+                    inputmode="numeric"
+                    oninput="formatearTarjeta(this)"
+                    required
+                >
+
+            </div>
+
+
+            <div class="fila">
+
+
+                <div class="campo">
+
+                    <label for="vencimiento">
+                        Vencimiento
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vencimiento"
+                        placeholder="MM/AA"
+                        maxlength="5"
+                        inputmode="numeric"
+                        oninput="formatearVencimiento(this)"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="cvv">
+                        CVV de prueba
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cvv"
+                        placeholder="000"
+                        maxlength="3"
+                        inputmode="numeric"
+                        oninput="soloNumeros(this)"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="boton-pagar"
+            >
+                💳 PAGAR AHORA
+            </button>
+
+        </form>
+
+
+        <a
+            href="carrito.html"
+            class="volver"
+        >
+            ← Volver al carrito
+        </a>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     COMPRA EXITOSA
+===================================================== -->
+
+<div
+    id="compra-exitosa"
+    class="compra-exitosa"
+>
+
+    <div id="confeti"></div>
+
+
+    <div class="mensaje-compra">
+
+        <div class="icono-compra">
+            🎉
+        </div>
+
+        <h1>
+            ¡GRACIAS POR SU COMPRA!
+        </h1>
+
+        <p>
+            Tu pedido fue realizado correctamente.
+        </p>
+
+        <div class="linea-exito"></div>
+
+        <span>
+            Urban Style
+        </span>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

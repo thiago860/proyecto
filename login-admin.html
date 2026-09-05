@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Admin - Urban Style</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+        <a href="index.html">INICIO</a>
+        <a href="index.html#productos">PRODUCTOS</a>
+        <a href="index.html#ofertas">OFERTAS</a>
+        <a href="mis-favoritos.html">FAVORITOS</a>
+        <a href="pedidos.html">PEDIDOS</a>
+    </nav>
+
+    <a href="carrito.html" class="carrito">
+        🛒 <span id="contador-carrito">0</span>
+    </a>
+
+    <button class="boton-tema" onclick="cambiarTema()" id="boton-tema">
+        🌙
+    </button>
+</header>
+
+
+<main class="login-container">
+
+    <div class="login-box">
+
+        <div class="login-icono">
+            🛠️
+        </div>
+
+        <h1>Panel de Administración</h1>
+
+        <p class="login-subtitulo">
+            Iniciá sesión para acceder al administrador
+        </p>
+
+
+        <form id="formulario-login">
+
+            <div class="campo">
+                <label for="usuario">Usuario</label>
+
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Ingresá tu usuario"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+
+            <div class="campo">
+                <label for="password">Contraseña</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Ingresá tu contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+
+            <p id="error-login" class="error-login"></p>
+
+
+            <button type="submit" class="boton-login">
+                INGRESAR AL ADMIN
+            </button>
+
+        </form>
+
+
+        <a href="index.html" class="volver-login">
+            ← Volver a la tienda
+        </a>
+
+    </div>
+
+</main>
+
+
+<div id="notificacion" class="notificacion"></div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+/* =========================================================
+   LOGIN DEL ADMIN
+   ========================================================= */
+
+const formularioLogin = document.getElementById("formulario-login");
+
+if (formularioLogin) {
+
+    formularioLogin.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const usuario = document.getElementById("usuario").value.trim();
+        const password = document.getElementById("password").value;
+
+        const error = document.getElementById("error-login");
+
+
+        /*
+         * DATOS DE ACCESO DE DEMOSTRACIÓN
+         *
+         * Después podemos cambiarlos por los que quieras.
+         */
+
+        const usuarioCorrecto = "admin";
+        const passwordCorrecta = "1234";
+
+
+        if (
+            usuario === usuarioCorrecto &&
+            password === passwordCorrecta
+        ) {
+
+            sessionStorage.setItem(
+                "adminLogueado",
+                "true"
+            );
+
+            window.location.href = "admin.html";
+
+        } else {
+
+            error.textContent =
+                "❌ Usuario o contraseña incorrectos.";
+
+            document.getElementById("password").value = "";
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   MODO CLARO / OSCURO
+   ========================================================= */
+
+function cambiarTemaLogin() {
+
+    document.body.classList.toggle("modo-claro");
+
+    const modoClaro =
+        document.body.classList.contains("modo-claro");
+
+    localStorage.setItem(
+        "temaUrban",
+        modoClaro ? "claro" : "oscuro"
+    );
+
+    actualizarBotonTemaLogin();
+}
+
+
+function actualizarBotonTemaLogin() {
+
+    const boton =
+        document.getElementById("boton-tema");
+
+    if (!boton) return;
+
+    if (
+        document.body.classList.contains("modo-claro")
+    ) {
+
+        boton.textContent = "🌙";
+
+    } else {
+
+        boton.textContent = "☀️";
+    }
+}
+
+
+function cargarTemaLogin() {
+
+    const tema =
+        localStorage.getItem("temaUrban");
+
+    if (tema === "claro") {
+
+        document.body.classList.add("modo-claro");
+
+    } else {
+
+        document.body.classList.remove("modo-claro");
+    }
+
+    actualizarBotonTemaLogin();
+}
+
+
+/*
+ * Usamos esta función para que el botón
+ * de arriba no interfiera con el resto.
+ */
+
+window.cambiarTema = cambiarTemaLogin;
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    cargarTemaLogin
+);
+
+</script>
+
+</body>
+</html>

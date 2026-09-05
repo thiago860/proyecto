@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos - Urban Style</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            🏠 INICIO
+        </a>
+
+        <a href="index.html#productos">
+            👕 PRODUCTOS
+        </a>
+
+        <a href="index.html#ofertas">
+            🔥 OFERTAS
+        </a>
+
+        <a href="mis-favoritos.html">
+            ❤️ FAVORITOS
+        </a>
+
+        <a href="pedidos.html">
+            📦 PEDIDOS
+        </a>
+
+        <a href="index.html#contacto">
+            📞 CONTACTO
+        </a>
+
+        <a href="admin.html">
+            🛠️ ADMIN
+        </a>
+
+    </nav>
+
+
+    <button
+        id="boton-tema"
+        class="boton-tema"
+        onclick="cambiarTema()"
+        title="Cambiar modo"
+    >
+        🌙
+    </button>
+
+
+    <a
+        href="carrito.html"
+        class="carrito"
+        title="Ver carrito"
+    >
+        🛒 <span>0</span>
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     PEDIDOS
+===================================================== -->
+
+<main class="pedidos-pagina">
+
+    <div class="seccion-titulo">
+
+        <p class="subtitulo">
+            CONSULTÁ TUS COMPRAS
+        </p>
+
+        <h1>
+            📦 MIS PEDIDOS
+        </h1>
+
+    </div>
+
+
+    <div id="lista-pedidos"></div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Urban Style - Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

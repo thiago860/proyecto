@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrito - Urban Style</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+        <a href="index.html">🏠 INICIO</a>
+        <a href="index.html#productos">👕 PRODUCTOS</a>
+        <a href="index.html#ofertas">🔥 OFERTAS</a>
+        <a href="mis-favoritos.html">❤️ FAVORITOS</a>
+        <a href="pedidos.html">📦 PEDIDOS</a>
+        <a href="index.html#contacto">📞 CONTACTO</a>
+        <a href="admin.html">🛠️ ADMIN</a>
+    </nav>
+
+    <button
+        id="boton-tema"
+        class="boton-tema"
+        onclick="cambiarTema()"
+        title="Cambiar modo"
+    >
+        🌙
+    </button>
+
+    <a href="carrito.html" class="carrito">
+        🛒 <span>0</span>
+    </a>
+
+</header>
+
+
+<main class="carrito-pagina">
+
+    <h1>
+        🛒 MI CARRITO
+    </h1>
+
+    <p class="subtitulo">
+        Revisá tus productos antes de pagar
+    </p>
+
+
+    <!-- =================================================
+         PRODUCTOS DEL CARRITO
+    ================================================== -->
+
+    <div id="lista-carrito"></div>
+
+
+    <!-- =================================================
+         RESUMEN
+    ================================================== -->
+
+    <div class="resumen-carrito">
+
+        <h3>
+            🚚 ENVÍO
+        </h3>
+
+        <p class="texto-envio">
+            Seleccioná dónde querés recibir tu pedido
+        </p>
+
+
+        <select
+            id="zona-envio"
+            onchange="calcularEnvio()"
+        >
+
+            <option value="">
+                Seleccioná una opción
+            </option>
+
+            <option value="3000">
+                🏠 CABA - $3.000
+            </option>
+
+            <option value="4500">
+                📍 Gran Buenos Aires - $4.500
+            </option>
+
+            <option value="7000">
+                🚚 Interior del país - $7.000
+            </option>
+
+            <option value="0">
+                🏪 Retiro en local - GRATIS
+            </option>
+
+        </select>
+
+
+        <p id="costo-envio">
+            ENVÍO: $0
+        </p>
+
+
+        <hr>
+
+
+        <!-- =================================================
+             CUPÓN
+        ================================================== -->
+
+        <h3>
+            🎟️ ¿TENÉS UN CUPÓN?
+        </h3>
+
+        <div class="cupon">
+
+            <input
+                type="text"
+                id="cupon"
+                placeholder="URBAN20"
+            >
+
+            <button
+                type="button"
+                onclick="aplicarCupon()"
+            >
+                APLICAR
+            </button>
+
+        </div>
+
+
+        <p id="descuento">
+            DESCUENTO: $0
+        </p>
+
+
+        <!-- =================================================
+             TOTAL
+        ================================================== -->
+
+        <h2 id="total">
+            TOTAL: $0
+        </h2>
+
+
+        <button
+            class="boton-pagar-carrito"
+            onclick="irAPagar()"
+        >
+            💳 IR A PAGAR
+        </button>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Urban Style - Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

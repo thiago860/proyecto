@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Style - Tienda</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        URBAN <span>STYLE</span>
+    </div>
+
+    <nav>
+        <a href="index.html">🏠 INICIO</a>
+        <a href="#productos">👕 PRODUCTOS</a>
+        <a href="#ofertas">🔥 OFERTAS</a>
+        <a href="mis-favoritos.html">❤️ FAVORITOS</a>
+        <a href="pedidos.html">📦 PEDIDOS</a>
+        <a href="#contacto">📞 CONTACTO</a>
+        <a href="admin.html">🛠️ ADMIN</a>
+    </nav>
+
+    <button
+        id="boton-tema"
+        class="boton-tema"
+        onclick="cambiarTema()"
+        title="Cambiar modo"
+    >
+        🌙
+    </button>
+
+    <a href="carrito.html" class="carrito">
+        🛒 <span>0</span>
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-contenido">
+
+        <p class="hero-pequeno">
+            URBAN STYLE
+        </p>
+
+        <h1>
+            NUEVA COLECCIÓN 2026
+        </h1>
+
+        <p>
+            VESTÍ TU ACTITUD
+        </p>
+
+        <a
+            href="#productos"
+            class="boton"
+        >
+            VER PRODUCTOS
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTOS
+===================================================== -->
+
+<section
+    id="productos"
+    class="productos"
+>
+
+    <div class="seccion-titulo">
+
+        <p class="subtitulo">
+            NUESTRA COLECCIÓN
+        </p>
+
+        <h2>
+            PRODUCTOS
+        </h2>
+
+    </div>
+
+
+    <!-- BUSCADOR -->
+
+    <div class="buscador">
+
+        <input
+            type="text"
+            placeholder="🔎 Buscar producto..."
+            oninput="buscarProductos(this)"
+        >
+
+    </div>
+
+
+    <!-- FILTROS -->
+
+    <div class="filtros">
+
+        <button
+            class="filtro activo"
+            onclick="filtrarProductos('todos', this)"
+        >
+            TODOS
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProductos('remeras', this)"
+        >
+            REMERAS
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProductos('buzos', this)"
+        >
+            BUZOS
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProductos('pantalones', this)"
+        >
+            PANTALONES
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProductos('zapatillas', this)"
+        >
+            ZAPATILLAS
+        </button>
+
+        <button
+            class="filtro"
+            onclick="filtrarProductos('accesorios', this)"
+        >
+            ACCESORIOS
+        </button>
+
+    </div>
+
+
+    <!-- LOS PRODUCTOS SE GENERAN CON JAVASCRIPT -->
+
+    <div class="productos-grid"></div>
+
+</section>
+
+
+<!-- =====================================================
+     OFERTAS
+===================================================== -->
+
+<section
+    id="ofertas"
+    class="ofertas"
+>
+
+    <div class="seccion-titulo">
+
+        <p class="subtitulo">
+            APROVECHÁ AHORA
+        </p>
+
+        <h2>
+            🔥 OFERTAS
+        </h2>
+
+    </div>
+
+
+    <div class="contador-oferta">
+
+        🔥 OFERTA TERMINA EN:
+
+        <span id="contador-oferta">
+            24:00:00
+        </span>
+
+    </div>
+
+
+    <!-- LAS OFERTAS SE GENERAN CON JAVASCRIPT -->
+
+    <div class="ofertas-grid"></div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section
+    id="contacto"
+    class="contacto"
+>
+
+    <div class="seccion-titulo">
+
+        <p class="subtitulo">
+            ESTAMOS PARA AYUDARTE
+        </p>
+
+        <h2>
+            CONTACTO
+        </h2>
+
+    </div>
+
+
+    <div class="contacto-info">
+
+        <p>
+            📧 Email:
+            urbanstyle@gmail.com
+        </p>
+
+        <p>
+            📱 Instagram:
+            @urbanstyle
+        </p>
+
+        <p>
+            📍 Argentina
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Urban Style - Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     NOTIFICACIÓN
+===================================================== -->
+
+<div
+    id="notificacion"
+    class="notificacion"
+>
+
+    <div id="notificacion-texto"></div>
+
+    <a href="carrito.html">
+        VER CARRITO →
+    </a>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
