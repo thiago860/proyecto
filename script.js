@@ -14,7 +14,7 @@ const productosOriginales = [
         nombre: "Remera Urban Black",
         precio: 18000,
         categoria: "remeras",
-        imagen: "imagenes/remera.JPG"
+        imagen: "imagenes/remera.jpg"
     },
 
     {
