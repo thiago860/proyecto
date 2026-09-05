@@ -66,7 +66,7 @@ const ofertasOriginales = [
         precioAnterior: 22500,
         precioOferta: 18000,
         descuento: 20,
-        imagen: "imagenes/remera.JPG"
+        imagen: "imagenes/remera.jpg"
     },
 
     {
