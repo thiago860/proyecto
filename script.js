@@ -1,3 +1,22 @@
+/* =====================================================
+   INTRO URBAN STYLE
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const intro = document.getElementById("intro-urban");
+
+    if (!intro) {
+        return;
+    }
+
+    setTimeout(function () {
+
+        intro.classList.add("intro-oculta");
+
+    }, 1500);
+
+});
 // ======================================================
 // URBAN STYLE - SCRIPT.JS
 // TIENDA, CARRITO, FAVORITOS, OFERTAS, PAGOS Y PEDIDOS
