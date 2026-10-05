@@ -4551,3 +4551,103 @@ body.modo-claro .cupon input {
     }
 
 }
+/* =====================================================
+   INTRO URBAN STYLE
+===================================================== */
+
+#intro-urban {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #080808;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+#intro-urban.intro-oculta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-contenido {
+    text-align: center;
+    animation: introEntrada 0.7s ease;
+}
+
+.intro-logo {
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: white;
+}
+
+.intro-logo span {
+    color: #e60000;
+}
+
+.intro-contenido p {
+    margin-top: 12px;
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.intro-linea {
+    width: 0;
+    height: 3px;
+    margin: 22px auto 0;
+
+    background: #e60000;
+
+    animation: introCarga 1.2s ease forwards;
+}
+
+@keyframes introEntrada {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes introCarga {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 180px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .intro-logo {
+        font-size: 38px;
+    }
+
+    .intro-contenido p {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+}
